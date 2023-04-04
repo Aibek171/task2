@@ -9,5 +9,4 @@ chat_id = 1121374935 # Ваш chat ID, не меняйте название пе
 def solution(p: float, x: np.array) -> tuple:
     time = 62
     alpha = 1 - p
-    loc = np.mean(x)*2/time**2
-    return loc + 2/time**2 * (-1/2 + expon.ppf(alpha / 2)) , loc + 2/time**2 * (-1/2 + expon.ppf( 1 - alpha / 2))
+    return (expon.ppf(alpha / 2)/len(x) + x.min() - 1/2)*2/time**2, (expon.ppf(1 - alpha / 2)/len(x) + x.min() - 1/2)*2/time**2
